@@ -1,3 +1,10 @@
+# Instalar JSON-Server
+`npm install -g json-server`
+
+# Para correr el back
+`npm run start:db`
+
+
 # AgendamientoProveedores
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.

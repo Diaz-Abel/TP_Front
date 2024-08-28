@@ -1,17 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Producto } from '../../models/producto.model';
 import { ProductoService } from '../../service/producto.service';
 import { FormsModule } from '@angular/forms';
+import { ProductoListComponent } from "../producto-list/producto-list.component";
 
 @Component({
   selector: 'app-producto-create',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, ProductoListComponent],
   templateUrl: './producto-create.component.html',
   styleUrl: './producto-create.component.css'
 })
 export class ProductoCreateComponent {
   producto: Producto = new Producto();
+
 
   constructor(private productoService: ProductoService) { }
 

@@ -1,1 +1,10 @@
-<p>producto-create works!</p>
+<h2>Crear Producto</h2>
+<form (ngSubmit)="createProducto()">
+    <div>
+        <label for="nombre">Nombre del Producto:</label>
+        <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" required />
+    </div>
+
+    <button type="submit">Crear</button>
+</form>
+

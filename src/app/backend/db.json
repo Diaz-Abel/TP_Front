@@ -1,1 +1,12 @@
-{}
+{
+  "productos": [
+    {
+      "nombre": "asa",
+      "id": 1
+    },
+    {
+      "nombre": "dawd",
+      "id": 2
+    }
+  ]
+}

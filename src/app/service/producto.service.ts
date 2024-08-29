@@ -17,6 +17,17 @@ export class ProductoService {
   // notificaciones cuando la lista de productos cambie.
   productos$ = this.productosSubject.asObservable();
 
+  // maneja la comunicacion entre edit y list
+  private productSource = new BehaviorSubject<any>(null);
+  currentProduct = this.productSource.asObservable();
+  changeProduct(product: any) {
+    this.productSource.next(product);
+  }
+
+  setProductEdit(product: Producto) {
+    this.productSource.next(product);
+  }
+
   private apiUrl = 'http://localhost:3000/productos'; // URL de json-server
 
   constructor(private http: HttpClient) { }
@@ -45,12 +56,20 @@ export class ProductoService {
   // Actualizar un producto existente
   updateProducto(producto: Producto): Observable<Producto> {
     const url = `${this.apiUrl}/${producto.id}`;
-    return this.http.put<Producto>(url, producto);
+    return this.http.put<Producto>(url, producto).pipe(
+      tap(() => {
+        this.getProductos().subscribe(productos => this.productosSubject.next(productos));
+      })
+    );;
   }
 
   // Eliminar un producto
   deleteProducto(id: number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
-    return this.http.delete<void>(url);
+    return this.http.delete<void>(url).pipe(
+      tap(() => {
+        this.getProductos().subscribe(productos => this.productosSubject.next(productos));
+      })
+    );
   }
 }

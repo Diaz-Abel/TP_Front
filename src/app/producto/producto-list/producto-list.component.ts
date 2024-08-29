@@ -1,16 +1,20 @@
+declare var bootstrap: any;
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../models/producto.model';
-import { HttpClient } from '@angular/common/http';
 import { ProductoService } from '../../service/producto.service';
 import { CommonModule } from '@angular/common';
+import { ProductoEditComponent } from "../producto-edit/producto-edit.component";
+import { ProductoDeleteComponent } from '../producto-delete/producto-delete.component';
+import { ProductoCreateComponent } from "../producto-create/producto-create.component";
 
 @Component({
   selector: 'app-producto-list',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ProductoEditComponent, ProductoDeleteComponent, ProductoCreateComponent],
   templateUrl: './producto-list.component.html',
-  styleUrl: './producto-list.component.css'
+  styleUrl: './producto-list.component.css',
 })
+
 export class ProductoListComponent implements OnInit {
   productos: Producto[] = [];
   constructor(private productoService: ProductoService) { }
@@ -37,5 +41,19 @@ export class ProductoListComponent implements OnInit {
     }
     );
   }
-
+  createProducto() {
+    const modal = new bootstrap.Modal(document.getElementById('staticBackdrop'));
+    modal.show(); // Abre el modal
+  }
+  productoSeleccionado: Producto = { id: 0, nombre: '' }; // por defecto
+  deleteProducto(producto: Producto) {
+    this.productoSeleccionado = { ...producto }; // Clona el producto para editarlo
+    const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    modal.show(); // Abre el modal
+  }
+  editProducto(producto: Producto) {
+    this.productoSeleccionado = { ...producto }; // Clona el producto para editarlo
+    const modal = new bootstrap.Modal(document.getElementById('myModal'));
+    modal.show(); // Abre el modal
+  }
 }

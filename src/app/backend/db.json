@@ -1,64 +1,28 @@
 {
   "productos": [
     {
-      "nombre": "asdas",
-      "id": 1
-    },
-    {
-      "nombre": "asdas",
-      "id": 2
-    },
-    {
-      "nombre": "asd",
-      "id": 3
-    },
-    {
-      "nombre": "asdaddad",
-      "id": 4
-    },
-    {
-      "nombre": "dasd",
-      "id": 5
-    },
-    {
-      "nombre": "asaddew2",
+      "nombre": "kakdjka",
       "id": 6
     },
     {
-      "nombre": "sdad",
+      "nombre": "asdasda",
       "id": 7
     },
     {
-      "nombre": "1234",
+      "nombre": "sda1232",
       "id": 8
     },
     {
-      "nombre": "sadfg",
+      "nombre": "nueve",
       "id": 9
     },
     {
-      "nombre": "as",
+      "nombre": "asdfd",
       "id": 10
     },
     {
-      "nombre": "adsfdgdfh",
+      "nombre": "asdfgb",
       "id": 11
-    },
-    {
-      "nombre": "asdasdasda",
-      "id": 12
-    },
-    {
-      "nombre": "1233r4ttht jg",
-      "id": 13
-    },
-    {
-      "nombre": "12qtry",
-      "id": 14
-    },
-    {
-      "nombre": "ksdnkad",
-      "id": 15
     }
   ]
 }

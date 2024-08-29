@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ProductoRoutingModule } from './producto-routing.module';
 import { FormsModule } from '@angular/forms';
+import { ProductoEditComponent } from './producto-edit/producto-edit.component';
+
+
 
 
 @NgModule({
@@ -10,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     ProductoRoutingModule,
-    FormsModule
+    FormsModule,
+    ProductoEditComponent,
   ]
 })
 export class ProductoModule { }

@@ -1,4 +1,4 @@
 export class Producto {
-    id!: Number;
+  id!: number;
     nombre!: String;
 }

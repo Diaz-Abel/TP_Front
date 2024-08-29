@@ -1,27 +1,23 @@
 declare var bootstrap: any;
 import { Component, Input } from '@angular/core';
 import { Producto } from '../../models/producto.model';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 import { ProductoService } from '../../service/producto.service';
 
-
 @Component({
-  selector: 'app-producto-edit',
+  selector: 'app-producto-delete',
   standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './producto-edit.component.html',
-  styleUrls: ['./producto-edit.component.css']
+  imports: [],
+  templateUrl: './producto-delete.component.html',
+  styleUrl: './producto-delete.component.css'
 })
-export class ProductoEditComponent {
-
+export class ProductoDeleteComponent {
   constructor(private productoService: ProductoService) { }
   @Input() producto: Producto = { id: 0, nombre: '' }; // Valor predeterminado si no se pasa ninguno
 
-  updateProducto(producto: Producto) {
-    this.productoService.updateProducto(producto).subscribe();
+  deleteProducto(producto: Producto) {
+    this.productoService.deleteProducto(producto.id).subscribe();
     // Usa la API nativa de Bootstrap 5 para cerrar el modal
-    const modalElement = document.getElementById('myModal');
+    const modalElement = document.getElementById('deleteModal');
     const modalInstance = bootstrap.Modal.getInstance(modalElement);
     if (modalInstance) {
       modalInstance.hide(); // Cierra el modal

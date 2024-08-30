@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 export class ProductoCreateComponent {
   producto: Producto = new Producto();
 
-
   constructor(private productoService: ProductoService) { }
 
   createProducto(): void {

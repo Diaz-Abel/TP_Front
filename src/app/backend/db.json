@@ -5,24 +5,53 @@
       "id": 6
     },
     {
-      "nombre": "asdasda",
-      "id": 7
-    },
-    {
-      "nombre": "sda1232",
+      "nombre": "iuiu",
       "id": 8
-    },
-    {
-      "nombre": "nueve",
-      "id": 9
     },
     {
       "nombre": "asdfd",
       "id": 10
     },
     {
-      "nombre": "asdfgb",
+      "nombre": "rodri",
       "id": 11
+    },
+    {
+      "nombre": "sadf",
+      "id": 12
+    },
+    {
+      "nombre": "2",
+      "id": 13
+    },
+    {
+      "nombre": "sdasdada",
+      "id": 14
+    },
+    {
+      "nombre": "qaswert",
+      "id": 15
+    },
+    {
+      "nombre": "asdasda",
+      "id": 16
+    }
+  ],
+  "jaulas": [
+    {
+      "nombre": "asdasda",
+      "enUso": "N",
+      "id": 1
+    },
+    {
+      "nombre": "asda",
+      "enUso": "N",
+      "id": 2
+    },
+    {
+      "nombre": "hohoho",
+      "enUso": "N",
+      "id": 3
     }
   ]
 }

@@ -24,5 +24,23 @@
       "nombre": "asdfgb",
       "id": 11
     }
+  ],
+  "proveedores": [
+    {
+      "nombre": "abel",
+      "id": 2
+    },
+    {
+      "nombre": "abel",
+      "id": 3
+    },
+    {
+      "nombre": "abel",
+      "id": 4
+    },
+    {
+      "nombre": "hj",
+      "id": 5
+    }
   ]
 }

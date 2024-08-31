@@ -1,1 +1,39 @@
-<p>proveedor-list works!</p>
+<!-- Botón para abrir el modal -->
+<button type="button" class="btn btn-primary nuevoProveedor" (click)="createProveedor()">
+    Nuevo Proveedor</button>
+
+<form class="d-flex" role="search">
+    <input 
+    class="form-control me-2" 
+    type="search" 
+    placeholder="Buscar por nombre" 
+    aria-label="Search" 
+    [(ngModel)]="searchTerm" 
+    (ngModelChange)="onSearchChange($event)" 
+    name="searchTerm"
+/>
+</form>
+<div class="container">
+    <table class="table">
+        <thead class="">
+            <tr>
+                <th>ID</th>
+                <th>Proveedor</th>
+                <th>Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let proveedor of proveedores">
+                <td>{{ proveedor.id }}</td>
+                <td>{{ proveedor.nombre }}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="editProveedor(proveedor)">Editar</button>
+                    <button (click)="deleteProveedor(proveedor)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<app-proveedor-edit [proveedor]="proveedorSeleccionado"></app-proveedor-edit>
+<app-proveedor-delete [proveedor]="proveedorSeleccionado"></app-proveedor-delete>
+<app-proveedor-create></app-proveedor-create>

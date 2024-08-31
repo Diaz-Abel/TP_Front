@@ -9,24 +9,9 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class ProductoService {
 
 
-  // Crea un BehaviorSubject que mantiene el estado actual de la lista de productos.
-  // Siempre emite el último valor a los nuevos suscriptores.
+  // Mantiene el estado actual de la lista de productos.
   private productosSubject = new BehaviorSubject<Producto[]>([]);
-  // Exponer el BehaviorSubject como un observable para que los componentes puedan suscribirse
-  // y recibir actualizaciones sobre la lista de productos. Los componentes suscritos recibirán
-  // notificaciones cuando la lista de productos cambie.
   productos$ = this.productosSubject.asObservable();
-
-  // maneja la comunicacion entre edit y list
-  private productSource = new BehaviorSubject<any>(null);
-  currentProduct = this.productSource.asObservable();
-  changeProduct(product: any) {
-    this.productSource.next(product);
-  }
-
-  setProductEdit(product: Producto) {
-    this.productSource.next(product);
-  }
 
   private apiUrl = 'http://localhost:3000/productos'; // URL de json-server
 

@@ -1,14 +1,19 @@
-<!-- Botón para abrir el modal -->
-<button type="button" class="btn btn-primary nuevoProducto" (click)="createProducto()">
-    Nuevo Producto</button>
 
-<form class="d-flex" role="search">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit">Buscar</button>
-</form>
-<div class="container">
-    <table class="table">
-        <thead class="">
+<div class="container-sm">
+    <div class="d-flex">
+        <div class="p-2 flex-grow-1">
+            <input class="form-control" type="search" placeholder="Buscar por nombre" aria-label="Search"
+                [(ngModel)]="searchTerm" name="search" (ngModelChange)="filterProductos()" />
+        </div>
+        <div class="p-2">
+                    <!-- Botón para abrir el modal -->
+            <button type="button" class="btn btn-primary " (click)="createProducto()">Nuevo Producto</button>
+            </div>
+            </div>
+            </div>
+            <div class="container-sm">
+                <table class="table table-light table-striped table-hover">
+                    <thead>
             <tr>
                 <th>ID</th>
                 <th>Producto</th>
@@ -16,17 +21,19 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let producto of productos">
-                <td>{{ producto.id}}</td>
+            <tr *ngFor="let producto of filteredProductos">
+                <td>{{ producto.id }}</td>
                 <td>{{ producto.nombre }}</td>
                 <td>
-                    <button class="btn btn-primary" (click)="editProducto(producto)">Editar</button>
-                    <button (click)="deleteProducto(producto)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+                    <button class="btn btn-primary text-center" (click)="editProducto(producto)">Editar</button>
+                    <button (click)="deleteProducto(producto)" class="btn btn-danger text-center"
+                        style="margin-left: 10px;">Eliminar</button>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
+
 <app-producto-edit [producto]="productoSeleccionado"></app-producto-edit>
 <app-producto-delete [producto]="productoSeleccionado"></app-producto-delete>
 <app-producto-create></app-producto-create>

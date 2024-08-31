@@ -1,25 +1,23 @@
 declare var bootstrap: any;
 import { Component, Input } from '@angular/core';
-import { Jaula } from '../../models/jaula.model';
 import { JaulaService } from '../../service/jaula.service';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { Jaula } from '../../models/jaula.model';
 
 @Component({
-  selector: 'app-jaula-edit',
+  selector: 'app-jaula-delete',
   standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './jaula-edit.component.html',
-  styleUrl: './jaula-edit.component.css'
+  imports: [],
+  templateUrl: './jaula-delete.component.html',
+  styleUrl: './jaula-delete.component.css'
 })
-export class JaulaEditComponent {
+export class JaulaDeleteComponent {
   constructor(private service: JaulaService) { }
   @Input() jaula: Jaula = { id: 0, nombre: '', enUso: "N" }; // Valor predeterminado si no se pasa ninguno
 
-  updateJaula(jaula: Jaula) {
-    this.service.updateJaula(jaula).subscribe();
+  deleteJaula(jaula: Jaula) {
+    this.service.deleteProducto(jaula.id).subscribe();
     // Usa la API nativa de Bootstrap 5 para cerrar el modal
-    const modalElement = document.getElementById('myModal');
+    const modalElement = document.getElementById('deleteModal');
     const modalInstance = bootstrap.Modal.getInstance(modalElement);
     if (modalInstance) {
       modalInstance.hide(); // Cierra el modal

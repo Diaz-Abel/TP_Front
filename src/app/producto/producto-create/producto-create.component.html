@@ -11,8 +11,8 @@
             <div class="modal-body">
                 <!-- Contenido del modal -->
                 <form (ngSubmit)="createProducto()">
-                    <div>
-                        <label for="nombre">Nombre del Producto:</label>
+                    <div class="mb-3">
+                        <label for="nombre" class="col-form-label">Nombre del Producto:</label>
                         <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" required />
                     </div>
 

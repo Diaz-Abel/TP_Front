@@ -57,10 +57,6 @@
   "proveedores": [
     {
       "nombre": "abel",
-      "id": 2
-    },
-    {
-      "nombre": "abel",
       "id": 3
     },
     {
@@ -68,7 +64,7 @@
       "id": 4
     },
     {
-      "nombre": "hj",
+      "nombre": "Ariel",
       "id": 5
     }
   ]

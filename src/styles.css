@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    font-family: Roboto,
+        "Helvetica Neue", sans-serif;
+
+}
+
+.mat-typography {
+
+    background: linear-gradient(90deg, #01a680, #02ea99, #02f4a3, #02ea99, #01a680);
+
+}

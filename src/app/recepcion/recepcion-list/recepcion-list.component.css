@@ -1,0 +1,48 @@
+.d-flex {
+    display: flex;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.me-2 {
+    margin-right: 0.5rem;
+}
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+.form-control {
+    width: auto;
+    display: inline-block;
+}
+
+.btn-outline-secondary {
+    display: inline-block;
+}
+
+.modal {
+    display: block;
+    /* Asegura que el modal se muestre */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro para resaltar el modal */
+
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: auto;
+}
+
+h1 {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+    font-size: 60px;
+}

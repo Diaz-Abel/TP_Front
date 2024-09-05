@@ -35,27 +35,6 @@
                 <option *ngFor="let proveedor of proveedores" [value]="proveedor.id">{{ proveedor.nombre }}</option>
               </select>
             </div>
-
-            <div class="mb-3">
-              <label for="idJaula" class="col-form-label">Jaula:</label>
-              <select id="idJaula" formControlName="idJaula" class="form-control">
-                <option *ngFor="let jaula of jaulas" [value]="jaula.id">{{ jaula.nombre }}</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <label for="horaInicioRecepcion" class="col-form-label">Hora Inicio Recepción:</label>
-              <select id="horaInicioRecepcion" formControlName="horaInicioRecepcion" class="form-control">
-                <option *ngFor="let hora of horasPredefinidas" [value]="hora">{{ hora }}</option>
-              </select>
-            </div>
-
-            <div class="mb-3">
-              <label for="horaFinRecepcion" class="col-form-label">Hora Fin Recepción:</label>
-              <select id="horaFinRecepcion" formControlName="horaFinRecepcion" class="form-control">
-                <option *ngFor="let hora of horasPredefinidas" [value]="hora">{{ hora }}</option>
-              </select>
-            </div>
           </div>
 
           <div class="mb-3">

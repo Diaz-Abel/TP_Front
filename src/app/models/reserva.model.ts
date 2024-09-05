@@ -15,13 +15,13 @@ export interface ReservaDetalle {
 // Interfaz para la cabecera de la reserva
 export interface ReservaCabecera {
     id: number;
-    fecha: string; // Considera usar una librería como moment.js o date-fns para el manejo de fechas
+    fecha: string;
     horaInicioAgendamiento: string;
     horaFinAgendamiento: string;
     idProveedor: number;
     idJaula: number;
-    horaInicioRecepcion: string;
-    horaFinRecepcion: string;
+    horaInicioRecepcion: string;  // Make it optional if necessary
+    horaFinRecepcion: string;     // Make it optional if necessary
 }
   
 // Interfaz principal para la reserva

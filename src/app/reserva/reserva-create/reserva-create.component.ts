@@ -6,6 +6,7 @@ import { ProveedorService } from '../../service/proveedor.service';
 import { JaulaService } from '../../service/jaula.service';
 import { ProductoService } from '../../service/producto.service';
 import { CommonModule } from '@angular/common';
+import { RecepcionService } from '../../service/recepcion.service';
 declare var bootstrap: any;
 
 @Component({
@@ -31,7 +32,8 @@ export class ReservaCreateComponent implements OnInit {
     private reservaService: ReservaService,
     private proveedorService: ProveedorService,
     private jaulaService: JaulaService,
-    private productoService: ProductoService
+    private productoService: ProductoService,
+    private recepcionService: RecepcionService
   ) {
     this.reservaForm = this.fb.group({
       cabecera: this.fb.group({
@@ -39,9 +41,9 @@ export class ReservaCreateComponent implements OnInit {
         horaInicioAgendamiento: ['', Validators.required],
         horaFinAgendamiento: ['', Validators.required],
         idProveedor: ['', Validators.required],
-        idJaula: ['', Validators.required],
-        horaInicioRecepcion: ['', Validators.required],
-        horaFinRecepcion: ['', Validators.required]
+        idJaula: [''],
+        horaInicioRecepcion: [''],
+        horaFinRecepcion: ['']
       }),
       detalles: this.fb.array([])
     });
@@ -76,6 +78,9 @@ export class ReservaCreateComponent implements OnInit {
         alert('Reserva creada exitosamente!');
         this.reservaForm.reset();
         this.detalles.clear();
+
+        // Llamar al método para convertir las reservas en recepciones
+        this.recepcionService.convertirReservasARecepciones();
       });
     } else {
       alert('Por favor, completa todos los campos requeridos.');

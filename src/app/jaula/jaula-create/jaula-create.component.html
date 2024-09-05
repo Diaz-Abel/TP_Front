@@ -4,14 +4,14 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Agregar Producto</h5>
+                <h5 class="modal-title" id="staticBackdropLabel">Agregar Jaula</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <!-- Contenido del modal -->
                 <form (ngSubmit)="createJaula()">
                     <div class="mb-3">
-                        <label for="nombre" class="col-form-label">Nombre del Producto:</label>
+                        <label for="nombre" class="col-form-label">Nombre de la Jaula:</label>
                         <input type="text" id="nombre" [(ngModel)]="jaula.nombre" name="nombre" required />
                     </div>
 

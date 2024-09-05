@@ -8,7 +8,7 @@
 
         </div>
         <div class="p-2">
-            <button type="button" class="btn btn-primary nuevoProveedor" (click)="createProveedor()">
+            <button type="button" class="btn btn-secondary nuevoProveedor" (click)="createProveedor()">
                 Nuevo Proveedor
                 </button>
                 </div>
@@ -29,7 +29,7 @@
                 <td>{{ proveedor.nombre }}</td>
                 <td>
                     <button class="btn btn-primary" (click)="editProveedor(proveedor)">Editar</button>
-                    <button (click)="deleteProveedor(proveedor)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+                    <button (click)="deleteProveedor(proveedor)" class="btn btn-danger">Eliminar</button>
                 </td>
             </tr>
         </tbody>

@@ -5,6 +5,7 @@ import { ProductoService } from '../../service/producto.service'; // Servicio pa
 import { Recepcion } from '../../models/recepcion.model';
 import { Jaula } from '../../models/jaula.model';
 import { Producto } from '../../models/producto.model'; // Modelo de Producto
+import { Reserva } from '../../models/reserva.model';  // Modelo de Reserva
 
 @Component({
   selector: 'app-recepcion-list',
@@ -14,6 +15,7 @@ import { Producto } from '../../models/producto.model'; // Modelo de Producto
 export class RecepcionListComponent implements OnInit {
   recepciones: Recepcion[] = [];
   productos: Producto[] = []; // Lista de productos
+  reservas: Reserva[] = [];  // Lista de reservas, la propiedad que faltaba
   filteredRecepciones: Recepcion[] = [];
   searchTerm: string = '';
   filterDate: string = '';
@@ -57,6 +59,14 @@ export class RecepcionListComponent implements OnInit {
     });
   }
 
+  getReservas(): void {
+    this.recepcionService.getReservas().subscribe(reservas => {
+      this.reservas = reservas;
+      console.log('Reservas actualizadas:', this.reservas); // Verifica que las reservas se cargan correctamente
+    }, error => {
+      console.error('Error al cargar las reservas:', error);
+    });
+  }
 
   // Función para convertir una hora en formato "HH:MM" a un objeto Date
   convertToDate(timeString: string): number {
@@ -94,9 +104,11 @@ export class RecepcionListComponent implements OnInit {
         // Find and update the corresponding reserva
         this.recepcionService.getReservaById(recepcion.id).subscribe(reserva => {
           if (reserva) {
+            reserva.cabecera.horaInicioRecepcion = recepcion.horaInicioRecepcion;
             reserva.cabecera.idJaula = +jaulaId;
             this.recepcionService.updateReserva(reserva).subscribe(() => {
-              console.log('Reserva updated with jaula');
+              console.log('Reserva actualizada con hora de inicio');
+              this.getReservas();  // Recargar las reservas
             });
           }
         });
@@ -113,9 +125,22 @@ export class RecepcionListComponent implements OnInit {
       // Cambiar el estado de la jaula de vuelta a 'N'
       this.jaulaService.updateJaula({ id: +recepcion.idJaula, enUso: 'N' } as Jaula).subscribe(() => {
         this.getRecepciones();
+
+        // Actualizar la reserva con la hora de fin
+        this.recepcionService.getReservaById(recepcion.id).subscribe(reserva => {
+          if (reserva) {
+            reserva.cabecera.horaFinRecepcion = recepcion.horaFinRecepcion;
+
+            this.recepcionService.updateReserva(reserva).subscribe(() => {
+              console.log('Reserva actualizada con hora de fin');
+              this.getReservas();  // Recargar las reservas
+            });
+          }
+        });
       });
     });
   }
+
 
   closePopup(): void {
     this.mostrarPopup = false;
@@ -187,8 +212,6 @@ export class RecepcionListComponent implements OnInit {
       console.error('Error al obtener la reserva:', error);
     });
   }
-
-
 
   cerrarDetalles(): void {
     this.mostrarDetalles = false;

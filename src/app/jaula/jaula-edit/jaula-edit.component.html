@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTitleId">
-                    Editar producto
+                    Editar Jaula
                 </h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -14,7 +14,7 @@
                     <!-- Contenido del modal -->
                     <form (ngSubmit)="updateJaula(jaula)">
                         <div>
-                            <label for=" nombre">Nombre del Producto:</label>
+                            <label for=" nombre">Nombre de la Jaula:</label>
                             <input type="text" id="nombre" name="nombre" [(ngModel)]="jaula.nombre" required />
                             <button type="submit" class="btn btn-primary">Guardar</button>
                         </div>

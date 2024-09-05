@@ -20,6 +20,13 @@ export class RecepcionService {
     );
   }
 
+  // Obtener todas las reservas
+  getReservas(): Observable<Reserva[]> {
+    return this.http.get<Reserva[]>(this.apiURLReservas).pipe(
+      tap(reservas => console.log('Reservas cargadas:', reservas)) // Verifica que las reservas se están cargando correctamente
+    );
+  }
+
   // Obtener una reserva por ID
   getReservaById(id: number): Observable<Reserva> {
     const url = `${this.apiURLReservas}/${id}`;
